@@ -1,11 +1,223 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const whatsappLink = 'https://wa.me/5541999999999';
+const instagramLink = 'https://instagram.com/debora.fernandes.psi';
 ---
 
 <Layout>
-	<Welcome />
+	<main>
+		<header class="hero">
+			<div class="hero__text">
+				<p class="kicker">Psicóloga Clínica • CRP 08/38319</p>
+				<h1>Débora Fernandes</h1>
+				<p>
+					Terapia on-line com acolhimento, ética e compromisso com sua história.
+				</p>
+				<div class="hero__actions">
+					<a class="btn btn--primary" href={whatsappLink} target="_blank" rel="noreferrer"
+						>Agende sua sessão</a
+					>
+					<a class="btn btn--ghost" href={instagramLink} target="_blank" rel="noreferrer"
+						>Instagram</a
+					>
+				</div>
+			</div>
+		</header>
+
+		<section class="section card">
+			<h2>Olá, meu nome é Débora Fernandes</h2>
+			<p>
+				Sou psicóloga clínica - CRP 08/38319. Meu trabalho é oferecer um ambiente seguro,
+				ético e respeitoso para que você possa se aproximar de si mesma com mais clareza e
+				desenvolver novas formas de se relacionar com seus pensamentos, emoções e escolhas.
+			</p>
+			<ul>
+				<li>Formada em Psicologia pela PUCPR.</li>
+				<li>Especialista em terapias comportamentais contextuais.</li>
+				<li>
+					Atuação orientada pela Análise do Comportamento e pelas terapias contextuais.
+				</li>
+			</ul>
+		</section>
+
+		<section class="section">
+			<h2>Sobre a psicoterapia</h2>
+			<p>
+				A psicoterapia é um processo de acompanhamento psicológico que tem como objetivo
+				ajudar você a compreender melhor seus pensamentos, emoções e comportamentos.
+			</p>
+			<div class="grid">
+				<article class="card">
+					<h3>Padrões que se repetem</h3>
+					<p>Em relacionamentos e situações da vida que geram sofrimento.</p>
+				</article>
+				<article class="card">
+					<h3>Dificuldades emocionais</h3>
+					<p>Momentos de ansiedade, insegurança, conflitos e mudanças.</p>
+				</article>
+				<article class="card">
+					<h3>Construção de sentido</h3>
+					<p>Possibilidades de viver de forma mais alinhada ao que importa para você.</p>
+				</article>
+			</div>
+			<p class="highlight">
+				A terapia não é apenas um espaço de resolver problemas, mas também um lugar de
+				descoberta, reflexão e desenvolvimento de novas formas de viver.
+			</p>
+		</section>
+
+		<section class="section card">
+			<h2>Como funcionam os atendimentos?</h2>
+			<p>
+				As sessões duram cerca de 50 minutos, acontecem on-line por videochamada e,
+				geralmente, uma vez por semana. Todo o atendimento é feito em um ambiente seguro,
+				ético e confortável para você.
+			</p>
+			<a class="btn btn--primary" href={whatsappLink} target="_blank" rel="noreferrer"
+				>Entre em contato comigo</a
+			>
+		</section>
+	</main>
 </Layout>
+
+<style>
+	:global(*) {
+		box-sizing: border-box;
+	}
+
+	:global(body) {
+		margin: 0;
+		font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+		color: #4c3d42;
+		background: linear-gradient(180deg, #f6edef 0%, #fdf7f8 100%);
+	}
+
+	main {
+		max-width: 960px;
+		margin: 0 auto;
+		padding: 2rem 1rem 3rem;
+		display: grid;
+		gap: 1.5rem;
+	}
+
+	.hero {
+		border-radius: 28px;
+		padding: 3rem 2rem;
+		background: radial-gradient(circle at top right, #f8dbe2 0%, #ead7e6 45%, #d8cade 100%);
+		box-shadow: 0 14px 42px rgba(120, 84, 104, 0.2);
+	}
+
+	.hero__text {
+		max-width: 600px;
+	}
+
+	.kicker {
+		font-size: 0.85rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		font-weight: 600;
+		margin-bottom: 0.9rem;
+	}
+
+	h1 {
+		margin: 0;
+		font-size: clamp(2rem, 7vw, 3.2rem);
+		line-height: 1.1;
+		color: #3c2f35;
+	}
+
+	h2 {
+		margin-top: 0;
+		font-size: clamp(1.4rem, 3vw, 2rem);
+		color: #3c2f35;
+	}
+
+	h3 {
+		margin: 0 0 0.6rem;
+		font-size: 1.1rem;
+	}
+
+	p,
+	li {
+		font-size: 1.05rem;
+		line-height: 1.65;
+	}
+
+	ul {
+		margin: 1rem 0 0;
+		padding-left: 1.2rem;
+		display: grid;
+		gap: 0.55rem;
+	}
+
+	.section {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.card {
+		background: #ffffffcc;
+		backdrop-filter: blur(4px);
+		border-radius: 22px;
+		padding: 1.6rem;
+		border: 1px solid #f3dbe2;
+	}
+
+	.grid {
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	}
+
+	.highlight {
+		padding: 1rem 1.2rem;
+		border-left: 4px solid #bc7f95;
+		background: #fff4f7;
+		border-radius: 0 12px 12px 0;
+	}
+
+	.hero__actions {
+		display: flex;
+		gap: 0.7rem;
+		flex-wrap: wrap;
+		margin-top: 1.4rem;
+	}
+
+	.btn {
+		text-decoration: none;
+		font-weight: 600;
+		padding: 0.8rem 1.2rem;
+		border-radius: 999px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.btn:hover {
+		transform: translateY(-1px);
+	}
+
+	.btn--primary {
+		background: #7f4f61;
+		color: #fff;
+		box-shadow: 0 8px 18px rgba(127, 79, 97, 0.35);
+	}
+
+	.btn--ghost {
+		background: transparent;
+		border: 1px solid #7f4f61;
+		color: #7f4f61;
+	}
+
+	@media (max-width: 640px) {
+		.hero {
+			padding: 2rem 1.3rem;
+		}
+
+		.card {
+			padding: 1.2rem;
+		}
+	}
+</style>

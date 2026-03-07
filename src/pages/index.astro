@@ -1,11 +1,287 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const whatsappLink = 'https://wa.me/5541999999999';
+const instagramLink = 'https://instagram.com/debora.fernandes.psi';
 ---
 
 <Layout>
-	<Welcome />
+	<main>
+		<section class="panel panel--hero" id="inicio">
+			<div class="panel__inner panel__inner--centered">
+				<p class="hero__symbol">Ψ</p>
+				<h1>DÉBORA FERNANDES</h1>
+				<p class="hero__meta">Psicóloga Clínica</p>
+				<p class="hero__meta">CRP-08/38319</p>
+				<a class="btn btn--light" href={whatsappLink} target="_blank" rel="noreferrer">Agende sua sessão</a>
+				<p class="hero__tagline">Terapia on-line com acolhimento, ética e compromisso com sua história.</p>
+				<span class="flower flower--dark" aria-hidden="true"></span>
+			</div>
+		</section>
+
+		<section class="panel panel--purple">
+			<div class="panel__inner panel__split">
+				<div class="photo-placeholder" role="img" aria-label="Foto de apresentação da psicóloga"></div>
+				<div class="panel__content">
+					<span class="flower flower--top" aria-hidden="true"></span>
+					<h2>Olá, meu nome é Débora Fernandes</h2>
+					<p>
+						Sou psicóloga clínica - CRP 08/38319. Meu trabalho é oferecer um ambiente seguro,
+						ético e respeitoso para que você possa se aproximar de si mesma com mais clareza.
+					</p>
+					<p>
+						Sou formada em Psicologia pela PUCPR e especialista em terapias comportamentais
+						contextuais, com atuação orientada pela Análise do Comportamento.
+					</p>
+					<a class="btn btn--outline" href={instagramLink} target="_blank" rel="noreferrer">Instagram</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="panel panel--white">
+			<div class="panel__inner panel__inner--narrow">
+				<h2>Sobre a psicoterapia</h2>
+				<p class="intro-text">
+					A psicoterapia é um processo de acompanhamento psicológico que ajuda você a compreender
+					melhor seus pensamentos, emoções e comportamentos. Ao longo das sessões, investigamos
+					juntos:
+				</p>
+				<div class="cards">
+					<article class="card">Padrões que se repetem em relacionamentos e situações da vida.</article>
+					<article class="card">Formas de lidar com ansiedade, insegurança, conflitos e mudanças.</article>
+					<article class="card">Dificuldades emocionais e momentos de sofrimento.</article>
+					<article class="card">Possibilidades de construir uma vida mais alinhada ao que é importante para você.</article>
+				</div>
+				<span class="flower flower--side" aria-hidden="true"></span>
+			</div>
+		</section>
+
+		<section class="panel panel--purple panel--contact">
+			<div class="panel__inner panel__inner--narrow panel__inner--centered">
+				<h2>Como funcionam os atendimentos?</h2>
+				<p>
+					As sessões duram cerca de 50 minutos, acontecem online por videochamada e, geralmente,
+					uma vez por semana. Todo o atendimento é feito em um ambiente seguro, ético e
+					confortável para você.
+				</p>
+				<span class="flower flower--dark" aria-hidden="true"></span>
+				<p class="contact-note">
+					A terapia não é apenas um espaço de “resolver problemas”, mas também um lugar de
+					descoberta, reflexão e desenvolvimento de novas formas de viver.
+				</p>
+				<a class="btn btn--dark" href={whatsappLink} target="_blank" rel="noreferrer">Entre em contato comigo!</a>
+			</div>
+		</section>
+	</main>
 </Layout>
+
+<style>
+	:global(*) { box-sizing: border-box; }
+
+	:global(body) {
+		margin: 0;
+		font-family: 'Cormorant Garamond', Georgia, serif;
+		color: #6c456b;
+		background: #fff;
+	}
+
+	main { width: 100%; }
+
+	.panel {
+		width: 100%;
+		padding: clamp(2rem, 4vw, 4rem) 0;
+	}
+
+	.panel__inner {
+		width: min(1220px, 92vw);
+		margin: 0 auto;
+		position: relative;
+	}
+
+	.panel__inner--narrow { width: min(1080px, 90vw); }
+	.panel__inner--centered { text-align: center; }
+
+	.panel--hero {
+		min-height: 100svh;
+		display: grid;
+		align-items: center;
+		background-color: #cfcbc0;
+		background-image:
+			radial-gradient(circle at 12% 20%, rgba(255, 255, 255, 0.48) 0 2px, transparent 2px),
+			radial-gradient(circle at 80% 22%, rgba(255, 255, 255, 0.42) 0 2px, transparent 2px),
+			radial-gradient(circle at 20% 70%, rgba(255, 255, 255, 0.38) 0 2px, transparent 2px),
+			repeating-radial-gradient(circle at 22% 36%, rgba(255, 255, 255, 0.42) 0 2px, transparent 2px 15px),
+			repeating-radial-gradient(circle at 74% 62%, rgba(255, 255, 255, 0.36) 0 2px, transparent 2px 18px),
+			linear-gradient(120deg, rgba(255, 255, 255, 0.3) 10%, rgba(255, 255, 255, 0) 30% 70%, rgba(255, 255, 255, 0.26) 90%);
+		background-size: 240px 240px, 260px 260px, 320px 320px, 520px 520px, 600px 600px, cover;
+	}
+
+	.panel--purple { background: #c6b0d7; color: #f7f0ff; }
+	.panel--white { background: #f4f1eb; color: #6f4970; }
+
+	h1 {
+		margin: 0;
+		font-size: clamp(2.2rem, 6vw, 5rem);
+		letter-spacing: 0.04em;
+		color: #cfb8ea;
+	}
+
+	h2 {
+		margin: 0 0 1rem;
+		font-size: clamp(2rem, 5vw, 4rem);
+		line-height: 1.1;
+	}
+
+	p { margin: 0; font-size: clamp(1.2rem, 2.4vw, 1.9rem); line-height: 1.35; }
+
+	.hero__symbol {
+		font-size: clamp(3.2rem, 9vw, 7rem);
+		margin: 0;
+		color: #cfb8ea;
+		text-shadow: 0 5px 14px rgba(122, 90, 136, 0.25);
+	}
+
+	.hero__meta { color: #dfcfee; }
+
+	.hero__tagline {
+		margin: 1.8rem auto 0;
+		max-width: 980px;
+		font-size: clamp(2rem, 4.5vw, 4.2rem);
+		color: #744d75;
+	}
+
+	.panel__split {
+		display: grid;
+		grid-template-columns: minmax(260px, 42%) minmax(320px, 1fr);
+		align-items: stretch;
+	}
+
+	.photo-placeholder {
+		min-height: 620px;
+		background:
+			linear-gradient(180deg, rgba(255,255,255,.2), rgba(255,255,255,.1)),
+			radial-gradient(circle at 50% 18%, #d8e8f1 0 20%, #9db67d 30% 60%, #74563f 100%);
+	}
+
+	.panel__content {
+		padding: clamp(2rem, 5vw, 5rem);
+		display: grid;
+		gap: 1.2rem;
+		position: relative;
+	}
+
+	.panel__content p {
+		font-family: 'Inter', 'Segoe UI', sans-serif;
+		font-size: clamp(1.1rem, 2vw, 1.95rem);
+		line-height: 1.5;
+	}
+
+	.intro-text {
+		font-size: clamp(1.4rem, 2.3vw, 2.2rem);
+		max-width: 940px;
+	}
+
+	.cards {
+		margin-top: 1.4rem;
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 1rem;
+	}
+
+	.card {
+		background: #c6b0d7;
+		color: #f7f0ff;
+		border-radius: 28px;
+		padding: 1.6rem;
+		font-size: clamp(1.2rem, 1.8vw, 1.9rem);
+		text-align: center;
+		min-height: 260px;
+		display: grid;
+		place-items: center;
+	}
+
+	.panel--contact h2,
+	.panel--contact p { color: #6f476f; }
+	.panel--contact .contact-note { color: #fff5ff; max-width: 980px; }
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		text-decoration: none;
+		padding: 0.9rem 2rem;
+		border-radius: 999px;
+		font-family: 'Inter', 'Segoe UI', sans-serif;
+		font-weight: 600;
+		font-size: clamp(1rem, 1.4vw, 1.25rem);
+	}
+
+	.btn--light { margin-top: 1rem; background: #c3a3df; color: #fff; }
+	.btn--outline { width: fit-content; border: 1px solid #fff5ff; color: #fff; }
+	.btn--dark { margin-top: 1.5rem; background: #7e527d; color: #fff; }
+
+	.flower {
+		display: inline-block;
+		width: 130px;
+		height: 130px;
+		position: relative;
+	}
+
+	.flower::before,
+	.flower::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		margin: auto;
+		width: 40px;
+		height: 40px;
+		border-radius: 999px;
+		background: currentColor;
+		box-shadow:
+			0 -44px 0 currentColor,
+			38px -22px 0 currentColor,
+			38px 22px 0 currentColor,
+			0 44px 0 currentColor,
+			-38px 22px 0 currentColor,
+			-38px -22px 0 currentColor;
+	}
+
+	.flower--dark { color: #7d4f7a; margin-top: 1rem; }
+	.flower--top {
+		color: #7d4f7a;
+		position: absolute;
+		top: -86px;
+		left: -72px;
+		transform: scale(1.08);
+	}
+
+	.flower--side {
+		color: #7d4f7a;
+		position: absolute;
+		right: -80px;
+		top: 36%;
+	}
+
+	.panel--contact .panel__inner {
+		display: grid;
+		gap: 1.2rem;
+		justify-items: center;
+	}
+
+	@media (max-width: 1050px) {
+		.cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+		.flower--side { display: none; }
+	}
+
+	@media (max-width: 840px) {
+		.panel__split { grid-template-columns: 1fr; }
+		.photo-placeholder { min-height: 380px; }
+		.flower--top { display: none; }
+	}
+
+	@media (max-width: 640px) {
+		.cards { grid-template-columns: 1fr; }
+		.panel--hero { min-height: 88svh; }
+		p { font-size: 1.15rem; }
+	}
+</style>

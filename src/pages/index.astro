@@ -4,6 +4,8 @@ import { Icon } from "astro-icon/components";
 
 const whatsappLink = "https://wa.me/5541999999999";
 const instagramLink = "https://instagram.com/debora.fernandes.psi";
+const email = "deborfernandes.psi@gmail.com";
+const phoneDisplay = "(43) 99126-4083";
 ---
 
 <Layout>
@@ -20,6 +22,7 @@ const instagramLink = "https://instagram.com/debora.fernandes.psi";
 			});
 		}
 	</script>
+
 	<main>
 		<section class="panel panel--hero" id="inicio">
 			<div class="panel__inner panel__inner--centered">
@@ -118,6 +121,56 @@ const instagramLink = "https://instagram.com/debora.fernandes.psi";
 			</div>
 		</section>
 	</main>
+
+	<footer class="site-footer">
+		<div class="site-footer__topbar"></div>
+
+		<div class="site-footer__inner">
+			<div class="site-footer__brand">
+				<div class="site-footer__logo">Ψ</div>
+
+				<div class="site-footer__brand-text">
+					<p class="site-footer__name">DÉBORA FERNANDES</p>
+					<p class="site-footer__role">Psicóloga Clínica</p>
+					<p class="site-footer__crp">CRP-08/38319</p>
+				</div>
+			</div>
+
+			<div class="site-footer__contact">
+				<a
+					class="site-footer__item"
+					href={whatsappLink}
+					target="_blank"
+					rel="noreferrer"
+				>
+					<span class="site-footer__icon">
+						<Icon name="mdi:whatsapp" size="22" />
+					</span>
+					<span>{phoneDisplay}</span>
+				</a>
+
+				<a class="site-footer__item" href={`mailto:${email}`}>
+					<span class="site-footer__icon">
+						<Icon name="mdi:email-outline" size="22" />
+					</span>
+					<span>{email}</span>
+				</a>
+
+				<a
+					class="site-footer__item"
+					href={instagramLink}
+					target="_blank"
+					rel="noreferrer"
+				>
+					<span class="site-footer__icon">
+						<Icon name="mdi:instagram" size="22" />
+					</span>
+					<span>@deborfernandes.psi</span>
+				</a>
+			</div>
+		</div>
+	</footer>
+
 	<a
 		class="whatsapp-float"
 		id="whatsappButton"
@@ -160,9 +213,11 @@ const instagramLink = "https://instagram.com/debora.fernandes.psi";
 	.panel__inner--narrow {
 		width: min(1080px, 90vw);
 	}
+
 	.panel__inner--centered {
 		text-align: center;
 	}
+
 	.panel--hero {
 		min-height: 100svh;
 		display: grid;
@@ -201,6 +256,7 @@ const instagramLink = "https://instagram.com/debora.fernandes.psi";
 		background: #c6b0d7;
 		color: #f7f0ff;
 	}
+
 	.panel--white {
 		background: #f4f1eb;
 		color: #6f4970;
@@ -251,18 +307,9 @@ const instagramLink = "https://instagram.com/debora.fernandes.psi";
 
 	.photo-placeholder {
 		min-height: 620px;
-		background:
-			linear-gradient(
-				180deg,
-				rgba(255, 255, 255, 0.2),
-				rgba(255, 255, 255, 0.1)
-			),
-			radial-gradient(
-				circle at 50% 18%,
-				#d8e8f1 0 20%,
-				#9db67d 30% 60%,
-				#74563f 100%
-			);
+		background-image: url("/me.jpg");
+		background-size: cover;
+		background-position: center;
 	}
 
 	.panel__content {
@@ -306,6 +353,7 @@ const instagramLink = "https://instagram.com/debora.fernandes.psi";
 	.panel--contact p {
 		color: #6f476f;
 	}
+
 	.panel--contact .contact-note {
 		color: #fff5ff;
 		max-width: 980px;
@@ -328,11 +376,13 @@ const instagramLink = "https://instagram.com/debora.fernandes.psi";
 		background: #c3a3df;
 		color: #fff;
 	}
+
 	.btn--outline {
 		width: fit-content;
 		border: 1px solid #fff5ff;
 		color: #fff;
 	}
+
 	.btn--dark {
 		margin-top: 1.5rem;
 		background: #7e527d;
@@ -369,6 +419,7 @@ const instagramLink = "https://instagram.com/debora.fernandes.psi";
 		color: #7d4f7a;
 		margin-top: 1rem;
 	}
+
 	.flower--top {
 		color: #7d4f7a;
 		position: absolute;
@@ -390,65 +441,109 @@ const instagramLink = "https://instagram.com/debora.fernandes.psi";
 		justify-items: center;
 	}
 
-	@media (max-width: 1050px) {
-		.cards {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-		.flower--side {
-			display: none;
-		}
+	.site-footer {
+		background: #f2efe8;
 	}
 
-	@media (max-width: 840px) {
-		.panel__split {
-			grid-template-columns: 1fr;
-		}
-		.photo-placeholder {
-			min-height: 380px;
-		}
-		.flower--top {
-			display: none;
-		}
+	.site-footer__topbar {
+		height: 14px;
+		background: #c6b0d7;
 	}
 
-	@media (max-width: 640px) {
-		.cards {
-			grid-template-columns: 1fr;
-		}
-		.panel--hero {
-			min-height: 88svh;
-		}
-		p {
-			font-size: 1.15rem;
-		}
+	.site-footer__inner {
+		width: min(1220px, 92vw);
+		margin: 0 auto;
+		padding: 3.25rem 0 3rem;
+		display: grid;
+		grid-template-columns: minmax(280px, 1fr) auto;
+		gap: 2.5rem;
+		align-items: center;
 	}
+
+	.site-footer__brand {
+		display: flex;
+		align-items: center;
+		gap: 1.25rem;
+		color: #ceb9e5;
+	}
+
+	.site-footer__logo {
+		font-size: clamp(8rem, 6vw, 5.8rem);
+		line-height: 1;
+		text-shadow: 0 5px 14px rgba(122, 90, 136, 0.25);
+		flex-shrink: 0;
+	}
+
+	.site-footer__brand-text {
+		display: grid;
+		gap: 0.3rem;
+		padding-top: 0;
+	}
+
+	.site-footer__name {
+		font-size: clamp(1.8rem, 3vw, 3rem);
+		line-height: 1;
+		letter-spacing: 0.03em;
+		font-weight: 700;
+		color: #ceb9e5;
+	}
+
+	.site-footer__role,
+	.site-footer__crp {
+		font-family: "Inter", "Segoe UI", sans-serif;
+		font-size: 1.25rem;
+		line-height: 1.45;
+		color: #b9a3d2;
+	}
+
+	.site-footer__contact {
+		display: grid;
+		gap: 1.15rem;
+		justify-items: start;
+	}
+
+	.site-footer__item {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.85rem;
+		text-decoration: none;
+		font-family: "Inter", "Segoe UI", sans-serif;
+		font-size: 1.2rem;
+		color: #c6b0d7;
+		transition: opacity 0.2s ease;
+	}
+
+	.site-footer__item:hover {
+		opacity: 0.78;
+	}
+
+	.site-footer__icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		color: #c6b0d7;
+		flex-shrink: 0;
+		transform: scale(1.15);
+	}
+
 	.whatsapp-float {
 		position: fixed;
 		right: 1.4rem;
 		bottom: 1.4rem;
-
 		width: 64px;
 		height: 64px;
-
 		display: flex;
 		align-items: center;
 		justify-content: center;
-
 		border-radius: 999px;
-
 		background: #7d4f7a;
 		color: white;
-
 		box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
-
 		z-index: 1000;
-
 		text-decoration: none;
-
 		opacity: 0;
 		transform: translateY(20px);
 		pointer-events: none;
-
 		transition:
 			opacity 0.35s ease,
 			transform 0.35s ease,
@@ -464,5 +559,67 @@ const instagramLink = "https://instagram.com/debora.fernandes.psi";
 	.whatsapp-float:hover {
 		transform: translateY(-3px);
 		box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
+	}
+
+	@media (max-width: 1050px) {
+		.cards {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.flower--side {
+			display: none;
+		}
+	}
+
+	@media (max-width: 840px) {
+		.panel__split {
+			grid-template-columns: 1fr;
+		}
+
+		.photo-placeholder {
+			min-height: 380px;
+		}
+
+		.flower--top {
+			display: none;
+		}
+
+		.site-footer__inner {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+			padding: 2.5rem 0 2.4rem;
+		}
+
+		.site-footer__contact {
+			justify-items: start;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.cards {
+			grid-template-columns: 1fr;
+		}
+
+		.panel--hero {
+			min-height: 88svh;
+		}
+
+		p {
+			font-size: 1.15rem;
+		}
+
+		.site-footer__brand {
+			align-items: center;
+		}
+
+		.site-footer__name {
+			font-size: 1.6rem;
+		}
+
+		.site-footer__role,
+		.site-footer__crp,
+		.site-footer__item {
+			font-size: 1rem;
+		}
 	}
 </style>

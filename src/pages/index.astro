@@ -54,15 +54,15 @@ const instagramPosts = [
 					});
 				},
 				{
-					threshold: 0.08,
-					rootMargin: "0px 0px -10% 0px",
+					threshold: 0.06,
+					rootMargin: "0px 0px -6% 0px",
 				},
 			);
 
 			revealElements.forEach((element) => {
 				const rect = element.getBoundingClientRect();
 				const isAlreadyVisible =
-					rect.top < window.innerHeight * 0.92 && rect.bottom > 0;
+					rect.top < window.innerHeight * 0.95 && rect.bottom > 0;
 
 				if (isAlreadyVisible) {
 					element.classList.add("is-visible");
@@ -70,6 +70,24 @@ const instagramPosts = [
 					observer.observe(element);
 				}
 			});
+
+			window.addEventListener(
+				"load",
+				() => {
+					document
+						.querySelectorAll(".reveal-up")
+						.forEach((element) => {
+							const rect = element.getBoundingClientRect();
+							if (
+								rect.top < window.innerHeight &&
+								rect.bottom > 0
+							) {
+								element.classList.add("is-visible");
+							}
+						});
+				},
+				{ once: true },
+			);
 		};
 
 		if (document.readyState === "loading") {
@@ -242,7 +260,7 @@ const instagramPosts = [
 		</section>
 	</main>
 
-	<footer class="site-footer reveal-up">
+	<footer class="site-footer">
 		<div class="site-footer__topbar"></div>
 
 		<div class="site-footer__inner">
@@ -256,9 +274,9 @@ const instagramPosts = [
 				</div>
 			</div>
 
-			<div class="site-footer__contact">
+			<div class="site-footer__contact reveal-up reveal-delay-2">
 				<a
-					class="site-footer__item reveal-up reveal-delay-2"
+					class="site-footer__item"
 					href={whatsappLink}
 					target="_blank"
 					rel="noreferrer"
@@ -269,10 +287,7 @@ const instagramPosts = [
 					<span>{phoneDisplay}</span>
 				</a>
 
-				<a
-					class="site-footer__item reveal-up reveal-delay-3"
-					href={`mailto:${email}`}
-				>
+				<a class="site-footer__item" href={`mailto:${email}`}>
 					<span class="site-footer__icon">
 						<Icon name="mdi:email-outline" size="22" />
 					</span>
@@ -280,7 +295,7 @@ const instagramPosts = [
 				</a>
 
 				<a
-					class="site-footer__item reveal-up reveal-delay-4"
+					class="site-footer__item"
 					href={instagramLink}
 					target="_blank"
 					rel="noreferrer"
@@ -629,6 +644,7 @@ const instagramPosts = [
 		display: grid;
 		gap: 1.15rem;
 		justify-items: start;
+		align-content: center;
 	}
 
 	.site-footer__item {
@@ -892,6 +908,30 @@ const instagramPosts = [
 			transform: none !important;
 			filter: none !important;
 			transition: none !important;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.site-footer__inner {
+			padding: 2.2rem 1.1rem 2.4rem;
+		}
+
+		.site-footer__brand {
+			align-items: flex-start;
+			gap: 0.95rem;
+		}
+
+		.site-footer__brand-text,
+		.site-footer__contact {
+			padding-left: 0.2rem;
+		}
+
+		.site-footer__contact {
+			justify-items: start;
+		}
+
+		.site-footer__item {
+			font-size: 0.98rem;
 		}
 	}
 </style>

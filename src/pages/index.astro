@@ -9,17 +9,17 @@ const phoneDisplay = "(43) 99126-4083";
 const instagramPosts = [
 	{
 		image: "/post_1.jpg",
-		link: "https://www.instagram.com/p/DV1WNDWGhAG/?igsh=MTQxcmNrYnVtdmV6dw==",
+		link: "https://www.instagram.com/p/DV1WNDWGhAG",
 		alt: "Post do Instagram da Débora Fernandes sobre sua relação com a psicologia.",
 	},
 	{
 		image: "/post_2.jpg",
-		link: "https://www.instagram.com/p/DVwEW9fFhAP/?igsh=MXF6cGRsZXZmNDRqMg==",
+		link: "https://www.instagram.com/p/DVwEW9fFhAP",
 		alt: "Post do Instagram da Débora Fernandes sobre relação com o trabalho.",
 	},
 	{
 		image: "/post_3.jpg",
-		link: "https://www.instagram.com/p/DUqt-O1mvPm/?igsh=Ymw4ZW9ocThsem95",
+		link: "https://www.instagram.com/p/DUqt-O1mvPm",
 		alt: "Post do Instagram da Débora Fernandes sobre a série Pluribus.",
 	},
 ];
@@ -103,7 +103,9 @@ const instagramPosts = [
 		<section class="panel panel--hero" id="inicio">
 			<div class="panel__inner panel__inner--centered">
 				<p class="hero__symbol reveal-up reveal-delay-1">Ψ</p>
-				<h1 class="reveal-up reveal-delay-2">DÉBORA FERNANDES</h1>
+				<h1 class="reveal-up reveal-delay-2 cor-hero">
+					DÉBORA FERNANDES
+				</h1>
 				<p class="hero__meta reveal-up reveal-delay-3">
 					Psicóloga Clínica
 				</p>
@@ -130,9 +132,9 @@ const instagramPosts = [
 				>
 				</div>
 				<div class="panel__content">
-					<h2 class="reveal-up reveal-delay-1">
-						Olá, meu nome é Débora Fernandes
-					</h2>
+					<p class="reveal-up reveal-delay-1">Olá, meu nome é</p>
+					<h1 class="reveal-up reveal-delay-1">Débora Fernandes</h1>
+
 					<p class="reveal-up reveal-delay-2">
 						Sou psicóloga clínica - CRP 08/38319. Meu trabalho é
 						oferecer um ambiente seguro, ético e respeitoso para que
@@ -405,11 +407,14 @@ const instagramPosts = [
 		color: #6f4970;
 	}
 
+	.cor-hero {
+		color: #cfb8ea;
+	}
+
 	h1 {
 		margin: 0;
 		font-size: clamp(2.2rem, 6vw, 5rem);
 		letter-spacing: 0.04em;
-		color: #cfb8ea;
 	}
 
 	h2 {
@@ -492,6 +497,13 @@ const instagramPosts = [
 		place-items: center;
 	}
 
+	@media (max-width: 640px) {
+		.card {
+			font-size: clamp(1.4rem, 5vw, 1.8rem);
+			line-height: 1.3;
+		}
+	}
+
 	.panel--contact h2,
 	.panel--contact p {
 		color: #6f476f;
@@ -507,11 +519,11 @@ const instagramPosts = [
 		align-items: center;
 		justify-content: center;
 		text-decoration: none;
-		padding: 0.9rem 2rem;
+		padding: 2rem 3rem;
 		border-radius: 999px;
 		font-family: "Inter", "Segoe UI", sans-serif;
 		font-weight: 600;
-		font-size: clamp(1rem, 1.4vw, 1.25rem);
+		font-size: clamp(1.5rem, 1.4vw, 1.25rem);
 	}
 
 	.btn--light {

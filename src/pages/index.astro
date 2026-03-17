@@ -103,13 +103,15 @@ const instagramPosts = [
 		<section class="panel panel--hero" id="inicio">
 			<div class="panel__inner panel__inner--centered">
 				<p class="hero__symbol reveal-up reveal-delay-1">Ψ</p>
-				<h1 class="reveal-up reveal-delay-2 cor-hero">
+				<h1 class="reveal-up reveal-delay-2 cor-hero title-frunchy">
 					DÉBORA FERNANDES
 				</h1>
-				<p class="hero__meta reveal-up reveal-delay-3">
+				<p class="hero__meta reveal-up reveal-delay-3 font-livvic">
 					Psicóloga Clínica
 				</p>
-				<p class="hero__meta reveal-up reveal-delay-3">CRP-08/38319</p>
+				<p class="hero__meta reveal-up reveal-delay-3 font-livvic">
+					CRP-08/38319
+				</p>
 				<a
 					class="btn btn--light reveal-up reveal-delay-4"
 					href={whatsappLink}
@@ -135,12 +137,12 @@ const instagramPosts = [
 					<p class="reveal-up reveal-delay-1">Olá, meu nome é</p>
 					<h1 class="reveal-up reveal-delay-1">Débora Fernandes</h1>
 
-					<p class="reveal-up reveal-delay-2">
+					<p class="reveal-up reveal-delay-2 font-livvic">
 						Sou psicóloga clínica - CRP 08/38319. Meu trabalho é
 						oferecer um ambiente seguro, ético e respeitoso para que
 						você possa se aproximar de si mesma com mais clareza.
 					</p>
-					<p class="reveal-up reveal-delay-3">
+					<p class="reveal-up reveal-delay-3 font-livvic">
 						Sou formada em Psicologia pela PUCPR e especialista em
 						terapias comportamentais contextuais, com atuação
 						orientada pela Análise do Comportamento.
@@ -199,7 +201,7 @@ const instagramPosts = [
 					desenvolvimento de novas formas de viver.
 				</p>
 				<a
-					class="btn btn--dark reveal-up reveal-delay-4"
+					class="btn btn-big btn--dark reveal-up reveal-delay-4"
 					href={whatsappLink}
 					target="_blank"
 					rel="noreferrer">Entre em contato comigo!</a
@@ -324,13 +326,54 @@ const instagramPosts = [
 </Layout>
 
 <style>
+	@font-face {
+		font-family: "The Seasons";
+		src: url("/fonts/The Seasons.ttf") format("truetype");
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: "Livvic";
+		src: url("/fonts/Livvic.ttf") format("truetype");
+		font-weight: 100 900;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: "Frunchy Sage";
+		src: url("/fonts/Frunchy.ttf") format("truetype");
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	.font-seasons {
+		font-family: "The Seasons", Georgia, serif !important;
+	}
+
+	.font-livvic {
+		font-family: "Livvic", sans-serif !important;
+	}
+
+	.font-livvic-thin {
+		font-family: "Livvic", sans-serif !important;
+		font-weight: 100;
+	}
+
+	.font-frunchy {
+		font-family: "Frunchy Sage", serif !important;
+	}
+
 	:global(*) {
 		box-sizing: border-box;
 	}
 
 	:global(body) {
 		margin: 0;
-		font-family: "Cormorant Garamond", Georgia, serif;
+		font-family: "The Seasons", Georgia, serif;
 		color: #6c456b;
 		background: #fff;
 	}
@@ -502,6 +545,29 @@ const instagramPosts = [
 			font-size: clamp(1.4rem, 5vw, 1.8rem);
 			line-height: 1.3;
 		}
+
+		.panel__inner--narrow {
+			padding: 0 1.6rem;
+		}
+	}
+
+	.title-frunchy {
+		font-family: "Frunchy Sage", serif;
+		color: #cbb6ea;
+
+		letter-spacing: 0.05em;
+
+		text-shadow:
+			2px 2px 0 rgba(125, 79, 122, 0.25),
+			5px 5px 10px rgba(125, 79, 122, 0.16);
+	}
+
+	@media (max-width: 640px) {
+		.title-frunchy {
+			text-shadow:
+				2px 2px 0 rgba(125, 79, 122, 0.25),
+				4px 4px 8px rgba(125, 79, 122, 0.14);
+		}
 	}
 
 	.panel--contact h2,
@@ -513,17 +579,55 @@ const instagramPosts = [
 		color: #fff5ff;
 		max-width: 980px;
 	}
+	.btn-big {
+		padding: 2rem 3rem !important;
+		font-size: clamp(1.5rem, 1.4vw, 1.25rem !important);
+	}
+
+	@media (max-width: 640px) {
+		/* Nome */
+		h1 {
+			font-size: 2.4rem;
+		}
+
+		/* Símbolo Ψ */
+		.hero__symbol {
+			font-size: 3.8rem;
+		}
+
+		/* Subtítulos */
+		.hero__meta {
+			font-size: 1.2rem;
+		}
+
+		/* Botão (mantém, só ajusta leve) */
+		.btn {
+			font-size: 1.1rem;
+			padding: 1rem 2.2rem;
+		}
+
+		/* Texto abaixo do botão */
+		.hero__tagline {
+			font-size: 1.2rem;
+			line-height: 1.4;
+			padding: 0 1rem;
+		}
+
+		.panel--hero .panel__inner {
+			gap: 0.6rem;
+		}
+	}
 
 	.btn {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		text-decoration: none;
-		padding: 2rem 3rem;
+		padding: 0.9rem 2rem;
 		border-radius: 999px;
 		font-family: "Inter", "Segoe UI", sans-serif;
 		font-weight: 600;
-		font-size: clamp(1.5rem, 1.4vw, 1.25rem);
+		font-size: clamp(1rem, 1.4vw, 1.25rem);
 	}
 
 	.btn--light {

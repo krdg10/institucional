@@ -1,0 +1,34 @@
+---
+import ContainerSecao from "../compartilhados/ContainerSecao.astro";
+import type { DadosApresentacao } from "../../tipos/landing-page";
+
+interface Props {
+	dadosApresentacao: DadosApresentacao;
+}
+
+const { dadosApresentacao } = Astro.props;
+---
+
+<section class="panel panel--purple" id="sobre-mim">
+	<ContainerSecao split>
+		<div
+			class="photo-placeholder reveal-up reveal-delay-1"
+			role="img"
+			aria-label="Foto de apresentação da psicóloga"
+		></div>
+
+		<div class="panel__content">
+			<p class="reveal-up reveal-delay-1">Olá, meu nome é</p>
+
+			<h1 class="reveal-up reveal-delay-1">{dadosApresentacao.tituloSecao}</h1>
+
+			{
+				dadosApresentacao.textos.map((texto, indice) => (
+					<p class={`reveal-up reveal-delay-${indice + 2} font-livvic text-align-justify`}>
+						{texto}
+					</p>
+				))
+			}
+		</div>
+	</ContainerSecao>
+</section>

@@ -1,0 +1,29 @@
+---
+interface Props {
+	classe?: string;
+	centralizado?: boolean;
+	estreito?: boolean;
+	split?: boolean;
+}
+
+const {
+	classe = "",
+	centralizado = false,
+	estreito = false,
+	split = false,
+} = Astro.props;
+
+const classes = [
+	"panel__inner",
+	estreito && "panel__inner--narrow",
+	centralizado && "panel__inner--centered",
+	split && "panel__split",
+	classe,
+]
+	.filter(Boolean)
+	.join(" ");
+---
+
+<div class={classes}>
+	<slot />
+</div>

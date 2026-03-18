@@ -1,0 +1,37 @@
+---
+interface Props {
+	href: string;
+	variante?: "claro" | "escuro";
+	tamanho?: "normal" | "grande";
+	classe?: string;
+	rotuloAria?: string;
+}
+
+const {
+	href,
+	variante = "claro",
+	tamanho = "normal",
+	classe = "",
+	rotuloAria,
+} = Astro.props;
+
+const classes = [
+	"btn",
+	variante === "claro" ? "btn--light" : "btn--dark",
+	tamanho === "grande" && "btn-big",
+	"font-seasons",
+	classe,
+]
+	.filter(Boolean)
+	.join(" ");
+---
+
+<a
+	class={classes}
+	href={href}
+	target="_blank"
+	rel="noopener noreferrer"
+	aria-label={rotuloAria}
+>
+	<slot />
+</a>

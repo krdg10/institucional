@@ -1,0 +1,69 @@
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: var(--altura-header);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: var(--fonte-titulo);
+	color: #6c456b;
+	background: #fff;
+}
+
+body.menu-mobile-open {
+	overflow: hidden;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+main {
+	width: 100%;
+}
+
+.font-seasons {
+	font-family: var(--fonte-titulo) !important;
+}
+
+.font-livvic {
+	font-family: var(--fonte-texto) !important;
+}
+
+.text-align-justify,
+.text-aling-justify {
+	text-align: justify;
+}
+
+.cor-hero {
+	color: var(--cor-lilas-claro);
+}
+
+.title-seasons {
+	font-family: var(--fonte-titulo);
+	color: #cbb6ea;
+	letter-spacing: 0.05em;
+}
+
+h1 {
+	margin: 0;
+	font-size: clamp(2.2rem, 6vw, 5rem);
+	letter-spacing: 0.04em;
+}
+
+h2 {
+	margin: 0 0 1rem;
+	font-size: clamp(2rem, 5vw, 4rem);
+	line-height: 1.1;
+}
+
+p {
+	margin: 0;
+	font-size: clamp(1.2rem, 2.4vw, 1.9rem);
+	line-height: 1.35;
+}

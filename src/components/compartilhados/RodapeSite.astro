@@ -1,0 +1,50 @@
+---
+import { Icon } from "astro-icon/components";
+import type { ContatosLandingPage, DadosApresentacao } from "../../tipos/landing-page";
+
+interface Props {
+	dadosApresentacao: DadosApresentacao;
+	contatos: ContatosLandingPage;
+}
+
+const { dadosApresentacao, contatos } = Astro.props;
+---
+
+<footer class="site-footer">
+	<div class="site-footer__topbar"></div>
+
+	<div class="site-footer__inner">
+		<div class="site-footer__brand reveal-up reveal-delay-1">
+			<div class="site-footer__logo">Ψ</div>
+
+			<div class="site-footer__brand-text">
+				<p class="site-footer__name">{dadosApresentacao.nome}</p>
+				<p class="site-footer__role">{dadosApresentacao.profissao}</p>
+				<p class="site-footer__crp">{dadosApresentacao.crp}</p>
+			</div>
+		</div>
+
+		<div class="site-footer__contact reveal-up reveal-delay-2">
+			<a class="site-footer__item" href={contatos.linkWhatsapp} target="_blank" rel="noopener noreferrer">
+				<span class="site-footer__icon">
+					<Icon name="mdi:whatsapp" size="22" />
+				</span>
+				<span>{contatos.telefoneExibicao}</span>
+			</a>
+
+			<a class="site-footer__item" href={`mailto:${contatos.email}`}>
+				<span class="site-footer__icon">
+					<Icon name="mdi:email-outline" size="22" />
+				</span>
+				<span>{contatos.email}</span>
+			</a>
+
+			<a class="site-footer__item" href={contatos.linkInstagram} target="_blank" rel="noopener noreferrer">
+				<span class="site-footer__icon">
+					<Icon name="mdi:instagram" size="22" />
+				</span>
+				<span>{contatos.usuarioInstagram}</span>
+			</a>
+		</div>
+	</div>
+</footer>

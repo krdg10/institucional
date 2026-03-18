@@ -1,0 +1,12 @@
+---
+interface Props {
+	texto: string;
+	classe?: string;
+}
+
+const { texto, classe = "" } = Astro.props;
+---
+
+<article class={`card ${classe}`.trim()}>
+	{texto}
+</article>

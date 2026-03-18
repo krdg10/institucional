@@ -1,0 +1,53 @@
+---
+import type { ItemMenu } from "../../tipos/landing-page";
+
+interface Props {
+	itensMenu: ItemMenu[];
+}
+
+const { itensMenu } = Astro.props;
+---
+
+<header class="site-header" id="siteHeader">
+	<div class="site-header__inner">
+		<a class="site-header__brand" href="#inicio" aria-label="Ir para o início">
+			<span class="site-header__brand-symbol">Ψ</span>
+			<span class="site-header__brand-name">Débora Fernandes</span>
+		</a>
+
+		<nav class="site-header__nav" aria-label="Navegação principal">
+			{
+				itensMenu.map((item) => (
+					<a class="site-header__link" href={item.href} data-menu-link>
+						{item.rotulo}
+					</a>
+				))
+			}
+		</nav>
+
+		<button
+			class="site-header__menu-button"
+			id="botaoMenuMobile"
+			type="button"
+			aria-label="Abrir menu"
+			aria-expanded="false"
+			aria-controls="menuMobile"
+		>
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
+	</div>
+
+	<nav class="site-header__mobile-nav" id="menuMobile" aria-label="Navegação mobile">
+		<div class="site-header__mobile-nav-inner">
+			{
+				itensMenu.map((item) => (
+					<a class="site-header__mobile-link" href={item.href} data-menu-link>
+						{item.rotulo}
+					</a>
+				))
+			}
+		</div>
+	</nav>
+</header>

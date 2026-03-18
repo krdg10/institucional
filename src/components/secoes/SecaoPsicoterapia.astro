@@ -1,0 +1,27 @@
+---
+import ContainerSecao from "../compartilhados/ContainerSecao.astro";
+import CartaoTopico from "../compartilhados/CartaoTopico.astro";
+import type { DadosPsicoterapia } from "../../tipos/landing-page";
+
+interface Props {
+	dadosPsicoterapia: DadosPsicoterapia;
+}
+
+const { dadosPsicoterapia } = Astro.props;
+---
+
+<section class="panel panel--white" id="psicoterapia">
+	<ContainerSecao estreito centralizado>
+		<h2 class="reveal-up reveal-delay-1">{dadosPsicoterapia.titulo}</h2>
+
+		<p class="intro-text reveal-up reveal-delay-2">{dadosPsicoterapia.introducao}</p>
+
+		<div class="cards">
+			{
+				dadosPsicoterapia.topicos.map((topico, indice) => (
+					<CartaoTopico texto={topico} classe={`reveal-up reveal-delay-${indice + 1}`} />
+				))
+			}
+		</div>
+	</ContainerSecao>
+</section>

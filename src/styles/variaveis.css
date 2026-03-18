@@ -1,0 +1,34 @@
+@font-face {
+	font-family: "The Seasons";
+	src: url("/fonts/The Seasons.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Livvic";
+	src: url("/fonts/Livvic.ttf") format("truetype");
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	--cor-lilas-principal: #c6b0d7;
+	--cor-lilas-escuro: #7d4f7a;
+	--cor-lilas-texto: #6f4970;
+	--cor-lilas-claro: #cfb8ea;
+	--cor-lilas-footer: #ceb9e5;
+	--cor-lilas-footer-secundaria: #b9a3d2;
+	--cor-fundo-claro: #f4f1eb;
+	--cor-fundo-footer: #f2efe8;
+	--cor-branco-suave: #f7f0ff;
+	--cor-hero-fundo: #cfcbc0;
+	--cor-sombra: rgba(122, 90, 136, 0.25);
+	--cor-sombra-card: rgba(108, 69, 107, 0.08);
+	--fonte-titulo: "The Seasons", Georgia, serif;
+	--fonte-texto: "Livvic", "Segoe UI", sans-serif;
+	--fonte-ui: "Inter", "Segoe UI", sans-serif;
+	--altura-header: 88px;
+}

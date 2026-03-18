@@ -1,0 +1,52 @@
+---
+import { Icon } from "astro-icon/components";
+import ContainerSecao from "../compartilhados/ContainerSecao.astro";
+import CartaoPostInstagram from "../compartilhados/CartaoPostInstagram.astro";
+import type { ContatosLandingPage, PostInstagram } from "../../tipos/landing-page";
+
+interface Props {
+	contatos: ContatosLandingPage;
+	postsInstagram: PostInstagram[];
+}
+
+const { contatos, postsInstagram } = Astro.props;
+---
+
+<section class="panel panel--social" id="redes-sociais">
+	<ContainerSecao estreito centralizado>
+		<div class="social__divider reveal-up reveal-delay-1" aria-hidden="true">
+			<span class="social__divider-line"></span>
+			<span class="social__divider-icon">
+				<Icon name="mdi:instagram" size="18" />
+			</span>
+			<span class="social__divider-line"></span>
+		</div>
+
+		<h2 class="social__title reveal-up reveal-delay-2">Acompanhe-me nas redes sociais</h2>
+
+		<a
+			class="social__icon-link reveal-up reveal-delay-3"
+			href={contatos.linkInstagram}
+			target="_blank"
+			rel="noopener noreferrer"
+			aria-label="Abrir Instagram"
+		>
+			<span class="social__icon-circle">
+				<Icon name="mdi:instagram" size="28" />
+			</span>
+		</a>
+
+		<div class="social__grid">
+			{
+				postsInstagram.map((post, indice) => (
+					<CartaoPostInstagram
+						imagem={post.imagem}
+						link={post.link}
+						alt={post.alt}
+						classe={`reveal-up reveal-delay-${indice + 1}`}
+					/>
+				))
+			}
+		</div>
+	</ContainerSecao>
+</section>

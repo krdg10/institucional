@@ -1,0 +1,20 @@
+---
+interface Props {
+	imagem: string;
+	link: string;
+	alt: string;
+	classe?: string;
+}
+
+const { imagem, link, alt, classe = "" } = Astro.props;
+---
+
+<a
+	class={`social__card ${classe}`.trim()}
+	href={link}
+	target="_blank"
+	rel="noopener noreferrer"
+	aria-label={alt}
+>
+	<img class="social__image" src={imagem} alt={alt} loading="lazy" />
+</a>

@@ -1,0 +1,30 @@
+---
+import BotaoAcao from "../compartilhados/BotaoAcao.astro";
+import ContainerSecao from "../compartilhados/ContainerSecao.astro";
+import type { ContatosLandingPage, DadosApresentacao } from "../../tipos/landing-page";
+
+interface Props {
+	dadosApresentacao: DadosApresentacao;
+	contatos: ContatosLandingPage;
+}
+
+const { dadosApresentacao, contatos } = Astro.props;
+---
+
+<section class="panel panel--hero" id="inicio">
+	<ContainerSecao centralizado>
+		<p class="hero__symbol reveal-up reveal-delay-1">Ψ</p>
+
+		<h1 class="reveal-up reveal-delay-2 cor-hero title-seasons">{dadosApresentacao.nome}</h1>
+
+		<p class="hero__meta reveal-up reveal-delay-3 font-livvic">{dadosApresentacao.profissao}</p>
+
+		<p class="hero__meta reveal-up reveal-delay-3 font-livvic">{dadosApresentacao.crp}</p>
+
+		<BotaoAcao href={contatos.linkWhatsapp} classe="reveal-up reveal-delay-4">
+			Agende sua sessão
+		</BotaoAcao>
+
+		<p class="hero__tagline reveal-up reveal-delay-5">{dadosApresentacao.chamada}</p>
+	</ContainerSecao>
+</section>

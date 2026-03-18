@@ -147,9 +147,12 @@ const itensMenu = [
 			}
 
 			const atualizarEstadoHeader = () => {
+				const menuAberto =
+					menuMobile?.classList.contains("is-open") ?? false;
+
 				header.classList.toggle(
 					"header--scrolled",
-					window.scrollY > 24,
+					window.scrollY > 24 || menuAberto,
 				);
 			};
 
@@ -161,6 +164,7 @@ const itensMenu = [
 				botaoMenu.setAttribute("aria-expanded", "false");
 				menuMobile.classList.remove("is-open");
 				document.body.classList.remove("menu-mobile-open");
+				atualizarEstadoHeader();
 			};
 
 			const alternarMenuMobile = () => {
@@ -171,6 +175,7 @@ const itensMenu = [
 				const menuAberto = menuMobile.classList.toggle("is-open");
 				botaoMenu.setAttribute("aria-expanded", String(menuAberto));
 				document.body.classList.toggle("menu-mobile-open", menuAberto);
+				atualizarEstadoHeader();
 			};
 
 			atualizarEstadoHeader();
@@ -621,6 +626,7 @@ const itensMenu = [
 		justify-content: space-between;
 		gap: 1.5rem;
 	}
+
 	.site-header__brand {
 		display: inline-flex;
 		align-items: center;
@@ -668,13 +674,68 @@ const itensMenu = [
 		height: 46px;
 		border: 0;
 		border-radius: 999px;
-		background: rgba(255, 255, 255, 0.16);
+		background: transparent;
 		cursor: pointer;
 		padding: 0;
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
 		gap: 4px;
+		appearance: none;
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	.site-header__brand,
+	.site-header__menu-button,
+	.site-header__link,
+	.site-header__mobile-link,
+	.whatsapp-float,
+	.btn,
+	.social__icon-link,
+	.site-footer__item,
+	.social__card {
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	.site-header__brand:focus,
+	.site-header__menu-button:focus,
+	.site-header__link:focus,
+	.site-header__mobile-link:focus,
+	.whatsapp-float:focus,
+	.btn:focus,
+	.social__icon-link:focus,
+	.site-footer__item:focus,
+	.social__card:focus {
+		outline: none;
+	}
+
+	.site-header__brand:focus-visible,
+	.site-header__menu-button:focus-visible,
+	.site-header__link:focus-visible,
+	.site-header__mobile-link:focus-visible,
+	.whatsapp-float:focus-visible,
+	.btn:focus-visible,
+	.social__icon-link:focus-visible,
+	.site-footer__item:focus-visible,
+	.social__card:focus-visible {
+		outline: 2px solid var(--cor-lilas-principal);
+		outline-offset: 4px;
+		box-shadow: none;
+	}
+
+	.btn:focus-visible,
+	.whatsapp-float:focus-visible,
+	.social__icon-link:focus-visible,
+	.social__card:focus-visible {
+		border-radius: 999px;
+	}
+
+	.site-footer__item:focus-visible,
+	.site-header__brand:focus-visible,
+	.site-header__menu-button:focus-visible,
+	.site-header__link:focus-visible,
+	.site-header__mobile-link:focus-visible {
+		border-radius: 10px;
 	}
 
 	.site-header__menu-button span {

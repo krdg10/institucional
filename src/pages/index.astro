@@ -2,8 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 
+const mensagemWhatsapp = "Oii, gostaria de informações sobre a terapia!";
 const contatos = {
-	whatsappLink: "https://wa.me/5543991264083",
+	whatsappLink: `https://wa.me/5543991264083?text=${encodeURIComponent(mensagemWhatsapp)}`,
 	instagramLink: "https://instagram.com/deborafernandes.psi",
 	email: "deborafernandes.psi@gmail.com",
 	telefoneExibicao: "(43) 99126-4083",
@@ -907,7 +908,9 @@ const itensMenu = [
 
 	.intro-text {
 		font-size: clamp(1.4rem, 2.3vw, 2.2rem);
-		max-width: 940px;
+		max-width: 820px;
+		margin: 0 auto;
+		text-align: center;
 	}
 
 	.cards {
@@ -921,12 +924,15 @@ const itensMenu = [
 		background: var(--cor-lilas-principal);
 		color: var(--cor-branco-suave);
 		border-radius: 28px;
-		padding: 1.6rem;
+		padding: 2rem 1.8rem;
 		font-size: clamp(1.2rem, 1.8vw, 1.9rem);
+		font-weight: 600;
 		text-align: center;
+		line-height: 1.35;
 		min-height: 260px;
-		display: grid;
-		place-items: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.btn {
@@ -1364,6 +1370,10 @@ const itensMenu = [
 
 		.site-footer__item {
 			font-size: 0.98rem;
+		}
+
+		.hero__tagline {
+			font-weight: 550;
 		}
 	}
 

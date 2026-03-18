@@ -47,6 +47,14 @@ const postsInstagram = [
 		alt: "Post do Instagram da Débora Fernandes sobre a série Pluribus.",
 	},
 ];
+
+const itensMenu = [
+	{ label: "Início", href: "#inicio" },
+	{ label: "Sobre mim", href: "#sobre-mim" },
+	{ label: "Psicoterapia", href: "#psicoterapia" },
+	{ label: "Atendimentos", href: "#atendimentos" },
+	{ label: "Redes sociais", href: "#redes-sociais" },
+];
 ---
 
 <Layout>
@@ -68,7 +76,9 @@ const postsInstagram = [
 
 		const inicializarBotaoWhatsapp = () => {
 			const botaoWhatsapp = document.getElementById("whatsappButton");
-			if (!botaoWhatsapp) return;
+			if (!botaoWhatsapp) {
+				return;
+			}
 
 			const atualizarVisibilidadeBotao = () => {
 				botaoWhatsapp.classList.toggle("visible", window.scrollY > 120);
@@ -83,12 +93,16 @@ const postsInstagram = [
 
 		const inicializarAnimacaoRevelacao = () => {
 			const elementos = obterElementosRevelacao();
-			if (!elementos.length) return;
+			if (!elementos.length) {
+				return;
+			}
 
 			const observador = new IntersectionObserver(
 				(entradas, obs) => {
 					entradas.forEach((entrada) => {
-						if (!entrada.isIntersecting) return;
+						if (!entrada.isIntersecting) {
+							return;
+						}
 
 						entrada.target.classList.add("is-visible");
 						obs.unobserve(entrada.target);
@@ -122,7 +136,66 @@ const postsInstagram = [
 			);
 		};
 
+		const inicializarHeader = () => {
+			const header = document.getElementById("siteHeader");
+			const botaoMenu = document.getElementById("botaoMenuMobile");
+			const menuMobile = document.getElementById("menuMobile");
+			const linksMenu = document.querySelectorAll("[data-menu-link]");
+
+			if (!header) {
+				return;
+			}
+
+			const atualizarEstadoHeader = () => {
+				header.classList.toggle(
+					"header--scrolled",
+					window.scrollY > 24,
+				);
+			};
+
+			const fecharMenuMobile = () => {
+				if (!botaoMenu || !menuMobile) {
+					return;
+				}
+
+				botaoMenu.setAttribute("aria-expanded", "false");
+				menuMobile.classList.remove("is-open");
+				document.body.classList.remove("menu-mobile-open");
+			};
+
+			const alternarMenuMobile = () => {
+				if (!botaoMenu || !menuMobile) {
+					return;
+				}
+
+				const menuAberto = menuMobile.classList.toggle("is-open");
+				botaoMenu.setAttribute("aria-expanded", String(menuAberto));
+				document.body.classList.toggle("menu-mobile-open", menuAberto);
+			};
+
+			atualizarEstadoHeader();
+
+			window.addEventListener("scroll", atualizarEstadoHeader, {
+				passive: true,
+			});
+
+			botaoMenu?.addEventListener("click", alternarMenuMobile);
+
+			linksMenu.forEach((link) => {
+				link.addEventListener("click", () => {
+					fecharMenuMobile();
+				});
+			});
+
+			window.addEventListener("resize", () => {
+				if (window.innerWidth > 840) {
+					fecharMenuMobile();
+				}
+			});
+		};
+
 		const inicializarPagina = () => {
+			inicializarHeader();
 			inicializarBotaoWhatsapp();
 			inicializarAnimacaoRevelacao();
 		};
@@ -135,6 +208,66 @@ const postsInstagram = [
 			inicializarPagina();
 		}
 	</script>
+
+	<header class="site-header" id="siteHeader">
+		<div class="site-header__inner">
+			<a
+				class="site-header__brand"
+				href="#inicio"
+				aria-label="Ir para o início"
+			>
+				<span class="site-header__brand-symbol">Ψ</span>
+				<span class="site-header__brand-name">Débora Fernandes</span>
+			</a>
+
+			<nav class="site-header__nav" aria-label="Navegação principal">
+				{
+					itensMenu.map((item) => (
+						<a
+							class="site-header__link"
+							href={item.href}
+							data-menu-link
+						>
+							{item.label}
+						</a>
+					))
+				}
+			</nav>
+
+			<button
+				class="site-header__menu-button"
+				id="botaoMenuMobile"
+				type="button"
+				aria-label="Abrir menu"
+				aria-expanded="false"
+				aria-controls="menuMobile"
+			>
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+		</div>
+
+		<nav
+			class="site-header__mobile-nav"
+			id="menuMobile"
+			aria-label="Navegação mobile"
+		>
+			<div class="site-header__mobile-nav-inner">
+				{
+					itensMenu.map((item) => (
+						<a
+							class="site-header__mobile-link"
+							href={item.href}
+							data-menu-link
+						>
+							{item.label}
+						</a>
+					))
+				}
+			</div>
+		</nav>
+	</header>
 
 	<main>
 		<section class="panel panel--hero" id="inicio">
@@ -168,7 +301,7 @@ const postsInstagram = [
 			</div>
 		</section>
 
-		<section class="panel panel--purple">
+		<section class="panel panel--purple" id="sobre-mim">
 			<div class="panel__inner panel__split">
 				<div
 					class="photo-placeholder reveal-up reveal-delay-1"
@@ -197,7 +330,7 @@ const postsInstagram = [
 			</div>
 		</section>
 
-		<section class="panel panel--white">
+		<section class="panel panel--white" id="psicoterapia">
 			<div
 				class="panel__inner panel__inner--narrow panel__inner--centered"
 			>
@@ -224,7 +357,7 @@ const postsInstagram = [
 			</div>
 		</section>
 
-		<section class="panel panel--purple panel--contact">
+		<section class="panel panel--purple panel--contact" id="atendimentos">
 			<div
 				class="panel__inner panel__inner--narrow panel__inner--centered"
 			>
@@ -256,7 +389,7 @@ const postsInstagram = [
 			</div>
 		</section>
 
-		<section class="panel panel--social">
+		<section class="panel panel--social" id="redes-sociais">
 			<div
 				class="panel__inner panel__inner--narrow panel__inner--centered"
 			>
@@ -405,6 +538,12 @@ const postsInstagram = [
 		--fonte-titulo: "The Seasons", Georgia, serif;
 		--fonte-texto: "Livvic", "Segoe UI", sans-serif;
 		--fonte-ui: "Inter", "Segoe UI", sans-serif;
+		--altura-header: 88px;
+	}
+
+	:global(html) {
+		scroll-behavior: smooth;
+		scroll-padding-top: var(--altura-header);
 	}
 
 	:global(*) {
@@ -416,6 +555,10 @@ const postsInstagram = [
 		font-family: var(--fonte-titulo);
 		color: #6c456b;
 		background: #fff;
+	}
+
+	:global(body.menu-mobile-open) {
+		overflow: hidden;
 	}
 
 	a {
@@ -448,6 +591,115 @@ const postsInstagram = [
 		font-family: var(--fonte-titulo);
 		color: #cbb6ea;
 		letter-spacing: 0.05em;
+	}
+
+	.site-header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 1200;
+		transition:
+			background-color 0.3s ease,
+			box-shadow 0.3s ease,
+			backdrop-filter 0.3s ease;
+		background: transparent;
+	}
+
+	.site-header.header--scrolled {
+		background: rgba(125, 79, 122, 0.88);
+		backdrop-filter: blur(10px);
+		box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+	}
+
+	.site-header__inner {
+		width: min(1220px, 92vw);
+		min-height: var(--altura-header);
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1.5rem;
+	}
+	.site-header__brand {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.7rem;
+		color: var(--cor-lilas-escuro);
+		flex-shrink: 0;
+		transition: color 0.3s ease;
+	}
+
+	.site-header__brand-symbol {
+		font-size: 1.9rem;
+		line-height: 1;
+	}
+
+	.site-header__brand-name {
+		font-family: var(--fonte-titulo);
+		font-size: 1.15rem;
+		letter-spacing: 0.04em;
+	}
+
+	.site-header__nav {
+		display: flex;
+		align-items: center;
+		gap: 1.4rem;
+	}
+
+	.site-header__link {
+		position: relative;
+		font-family: var(--fonte-ui);
+		font-size: 0.98rem;
+		font-weight: 600;
+		color: var(--cor-lilas-escuro);
+		transition:
+			opacity 0.2s ease,
+			color 0.3s ease;
+	}
+
+	.site-header__link:hover {
+		opacity: 0.8;
+	}
+
+	.site-header__menu-button {
+		display: none;
+		width: 46px;
+		height: 46px;
+		border: 0;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.16);
+		cursor: pointer;
+		padding: 0;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	.site-header__menu-button span {
+		display: block;
+		width: 18px;
+		height: 2px;
+		background: var(--cor-lilas-escuro);
+		border-radius: 999px;
+		transition: background-color 0.3s ease;
+	}
+
+	.site-header__mobile-nav {
+		display: none;
+	}
+
+	.site-header.header--scrolled .site-header__brand {
+		color: #fff;
+	}
+
+	.site-header.header--scrolled .site-header__link {
+		color: #fff;
+	}
+
+	.site-header.header--scrolled .site-header__menu-button span {
+		background: #fff;
 	}
 
 	.panel {
@@ -891,6 +1143,56 @@ const postsInstagram = [
 	}
 
 	@media (max-width: 840px) {
+		.site-header__nav {
+			display: none;
+		}
+
+		.site-header__menu-button {
+			display: inline-flex;
+		}
+
+		.site-header__mobile-nav {
+			display: block;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			width: 100%;
+			background: rgba(125, 79, 122, 0.96);
+			backdrop-filter: blur(10px);
+			box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+			opacity: 0;
+			visibility: hidden;
+			transform: translateY(-8px);
+			pointer-events: none;
+			transition:
+				opacity 0.25s ease,
+				transform 0.25s ease,
+				visibility 0.25s ease;
+		}
+
+		.site-header__mobile-nav.is-open {
+			opacity: 1;
+			visibility: visible;
+			transform: translateY(0);
+			pointer-events: auto;
+		}
+
+		.site-header__mobile-nav-inner {
+			width: min(1220px, 92vw);
+			margin: 0 auto;
+			padding: 0.7rem 0 1rem;
+			display: grid;
+		}
+
+		.site-header__mobile-link {
+			padding: 0.95rem 0;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+			font-family: var(--fonte-ui);
+			font-size: 1rem;
+			font-weight: 600;
+			color: #fff;
+		}
+
 		.panel__split {
 			grid-template-columns: 1fr;
 		}
@@ -915,6 +1217,10 @@ const postsInstagram = [
 	}
 
 	@media (max-width: 640px) {
+		:root {
+			--altura-header: 78px;
+		}
+
 		h1 {
 			font-size: 2.4rem;
 		}
@@ -963,6 +1269,10 @@ const postsInstagram = [
 			padding: 1rem 2.2rem;
 		}
 
+		.site-header__brand-name {
+			font-size: 1rem;
+		}
+
 		.site-footer__inner {
 			padding: 2.2rem 1.1rem 2.4rem;
 		}
@@ -1000,11 +1310,17 @@ const postsInstagram = [
 		.reveal-up,
 		.reveal-up.is-visible,
 		.whatsapp-float,
-		.whatsapp-float.visible {
+		.whatsapp-float.visible,
+		.site-header,
+		.site-header__mobile-nav {
 			opacity: 1 !important;
 			transform: none !important;
 			filter: none !important;
 			transition: none !important;
+		}
+
+		:global(html) {
+			scroll-behavior: auto;
 		}
 	}
 </style>

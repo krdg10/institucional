@@ -1,13 +1,18 @@
 ---
+import { schemaPessoa } from "../seo/schema-pessoa";
+
 interface Props {
 	title?: string;
 	description?: string;
 }
 
 const {
-	title = "Débora Fernandes | Psicóloga Clínica",
-	description = "Terapia on-line com acolhimento, ética e compromisso com a sua história. Agende sua sessão via WhatsApp.",
+	title = "Psicóloga Online | Débora Fernandes | Terapia com acolhimento",
+	description = "Psicóloga clínica de Londrina com atendimento online para todo o Brasil. Terapia com acolhimento, ética e compromisso com sua história.",
 } = Astro.props;
+
+const url = "https://psicologadeborafernandes.com.br";
+const imagemOg = `${url}/og-image.jpg`;
 ---
 
 <!doctype html>
@@ -15,13 +20,32 @@ const {
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
-		<link rel="icon" href="/favicon.png" />
-		<meta name="description" content={description} />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="format-detection" content="telephone=no" />
+
 		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={url} />
+
+		<link rel="icon" href="/favicon.png" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={url} />
+		<meta property="og:image" content={imagemOg} />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={imagemOg} />
+
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="generator" content={Astro.generator} />
+
+		<script type="application/ld+json" is:inline>
+			{JSON.stringify(schemaPessoa)}
+		</script>
 	</head>
+
 	<body>
 		<slot />
 	</body>

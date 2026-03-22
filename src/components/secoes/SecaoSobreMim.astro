@@ -15,16 +15,21 @@ const { dadosApresentacao } = Astro.props;
 			class="photo-placeholder reveal-up reveal-delay-1"
 			role="img"
 			aria-label="Foto de apresentação da psicóloga"
-		></div>
+		>
+		</div>
 
 		<div class="panel__content">
 			<p class="reveal-up reveal-delay-1">Olá, meu nome é</p>
 
-			<h1 class="reveal-up reveal-delay-1">{dadosApresentacao.tituloSecao}</h1>
+			<h2 class="titulo-grande reveal-up reveal-delay-1">
+				{dadosApresentacao.tituloSecao}
+			</h2>
 
 			{
 				dadosApresentacao.textos.map((texto, indice) => (
-					<p class={`reveal-up reveal-delay-${indice + 2} font-livvic text-align-justify`}>
+					<p
+						class={`reveal-up reveal-delay-${indice + 2} font-livvic text-align-justify`}
+					>
 						{texto}
 					</p>
 				))

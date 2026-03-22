@@ -2,6 +2,11 @@
 @import "./global.css";
 @import "./animacoes.css";
 
+.titulo-grande {
+	font-size: clamp(2.2rem, 6vw, 5rem);
+	letter-spacing: 0.04em;
+}
+
 .site-header {
 	position: fixed;
 	top: 0;

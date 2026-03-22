@@ -56,17 +56,17 @@ export const postsInstagram: PostInstagram[] = [
 	{
 		imagem: "/post_1.jpg",
 		link: "https://www.instagram.com/p/DV1WNDWGhAG",
-		alt: "Post do Instagram da Débora Fernandes sobre sua relação com a psicologia.",
+		alt: "Reflexão da Psicóloga Débora Fernandes refletindo sobre dores e valores na sua prática clínica.",
 	},
 	{
 		imagem: "/post_2.jpg",
 		link: "https://www.instagram.com/p/DVwEW9fFhAP",
-		alt: "Post do Instagram da Débora Fernandes sobre relação com o trabalho.",
+		alt: "Mensagem sobre trabalho e sentido de vida: você não precisa amar seu trabalho para construir uma vida significativa.",
 	},
 	{
 		imagem: "/post_3.jpg",
 		link: "https://www.instagram.com/p/DUqt-O1mvPm",
-		alt: "Post do Instagram da Débora Fernandes sobre a série Pluribus.",
+		alt: "Reflexão psicológica sobre pertencimento e autenticidade e seus conflitos emocionais, inspirado pela série Pluribus.",
 	},
 ];
 

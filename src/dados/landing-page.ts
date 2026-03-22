@@ -23,7 +23,7 @@ export const dadosApresentacao: DadosApresentacao = {
 	profissao: "Psicóloga Clínica",
 	crp: "CRP-08/38319",
 	chamada:
-		"Terapia on-line com acolhimento, ética e compromisso com sua história.",
+		"Terapia online com acolhimento, ética e compromisso com sua história.",
 	tituloSecao: "Débora Fernandes",
 	textos: [
 		"Sou psicóloga clínica - CRP 08/38319. Meu trabalho é oferecer um ambiente seguro, ético e respeitoso para que você possa se aproximar de si mesma com mais clareza.",

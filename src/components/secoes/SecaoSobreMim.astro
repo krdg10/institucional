@@ -11,12 +11,17 @@ const { dadosApresentacao } = Astro.props;
 
 <section class="panel panel--purple" id="sobre-mim">
 	<ContainerSecao split>
-		<div
-			class="photo-placeholder reveal-up reveal-delay-1"
-			role="img"
-			aria-label="Foto de apresentação da psicóloga"
-		>
-		</div>
+		<figure class="photo-wrapper reveal-up reveal-delay-1">
+			<img
+				class="photo-placeholder"
+				src="/me.jpg"
+				alt="Psicóloga Débora Fernandes, profissional de psicologia clínica."
+				loading="lazy"
+			/>
+			<figcaption class="caption-oculta">
+				Foto de apresentação da psicóloga Débora Fernandes.
+			</figcaption>
+		</figure>
 
 		<div class="panel__content">
 			<p class="reveal-up reveal-delay-1">Olá, meu nome é</p>

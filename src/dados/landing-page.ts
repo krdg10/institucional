@@ -56,17 +56,23 @@ export const postsInstagram: PostInstagram[] = [
 	{
 		imagem: "/post_1.jpg",
 		link: "https://www.instagram.com/p/DV1WNDWGhAG",
-		alt: "Reflexão da Psicóloga Débora Fernandes refletindo sobre dores e valores na sua prática clínica.",
+		alt: "Psicóloga Débora Fernandes refletindo sobre dores e valores na prática clínica.",
+		caption:
+			"Reflexões sobre as dores e os valores que atravessam a prática clínica na psicologia.",
 	},
 	{
 		imagem: "/post_2.jpg",
 		link: "https://www.instagram.com/p/DVwEW9fFhAP",
 		alt: "Mensagem sobre trabalho e sentido de vida: você não precisa amar seu trabalho para construir uma vida significativa.",
+		caption:
+			"Uma reflexão sobre trabalho, propósito e a construção de uma vida com significado.",
 	},
 	{
 		imagem: "/post_3.jpg",
 		link: "https://www.instagram.com/p/DUqt-O1mvPm",
-		alt: "Reflexão psicológica sobre pertencimento e autenticidade e seus conflitos emocionais, inspirado pela série Pluribus.",
+		alt: "Reflexão psicológica sobre pertencimento e autenticidade e seus conflitos emocionais.",
+		caption:
+			"Pertencimento e autenticidade: um conflito emocional comum na forma como nos relacionamos com o mundo.",
 	},
 ];
 

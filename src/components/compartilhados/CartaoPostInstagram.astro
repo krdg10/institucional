@@ -3,18 +3,23 @@ interface Props {
 	imagem: string;
 	link: string;
 	alt: string;
+	caption?: string;
 	classe?: string;
 }
 
-const { imagem, link, alt, classe = "" } = Astro.props;
+const { imagem, link, alt, caption, classe = "" } = Astro.props;
 ---
 
-<a
-	class={`social__card ${classe}`.trim()}
-	href={link}
-	target="_blank"
-	rel="noopener noreferrer"
-	aria-label={alt}
->
-	<img class="social__image" src={imagem} alt={alt} loading="lazy" />
-</a>
+<figure class={`post-instagram ${classe}`.trim()}>
+	<a
+		class="social__card"
+		href={link}
+		target="_blank"
+		rel="noopener noreferrer"
+		aria-label={alt}
+	>
+		<img class="social__image" src={imagem} alt={alt} loading="lazy" />
+	</a>
+
+	{caption && <figcaption class="">{caption}</figcaption>}
+</figure>

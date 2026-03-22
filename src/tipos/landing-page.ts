@@ -38,4 +38,5 @@ export interface PostInstagram {
 	imagem: string;
 	link: string;
 	alt: string;
+	caption: string;
 }

@@ -1,5 +1,6 @@
 ---
 import { schemaPessoa } from "../seo/schema-pessoa";
+import { schemaSite } from "../seo/schema-site";
 
 interface Props {
 	title?: string;
@@ -27,6 +28,7 @@ const imagemOg = `${url}/og-image.jpg`;
 
 		<link rel="icon" href="/favicon.png" />
 
+		<meta property="og:site_name" content="Psicóloga Débora Fernandes" />
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
@@ -43,6 +45,10 @@ const imagemOg = `${url}/og-image.jpg`;
 
 		<script type="application/ld+json" is:inline>
 			{JSON.stringify(schemaPessoa)}
+		</script>
+
+		<script type="application/ld+json" is:inline>
+			{JSON.stringify(schemaSite)}
 		</script>
 	</head>
 

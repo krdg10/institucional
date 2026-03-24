@@ -1,5 +1,4 @@
 ---
-import { schemaPessoa } from "../seo/schema-pessoa";
 import { schemaSite } from "../seo/schema-site";
 
 interface Props {
@@ -43,13 +42,11 @@ const imagemOg = `${url}/og-image.jpg`;
 		<meta name="format-detection" content="telephone=no" />
 		<meta name="generator" content={Astro.generator} />
 
-		<script type="application/ld+json" is:inline>
-			{JSON.stringify(schemaPessoa)}
-		</script>
-
-		<script type="application/ld+json" is:inline>
-			{JSON.stringify(schemaSite)}
-		</script>
+		<script
+			type="application/ld+json"
+			is:inline
+			set:html={JSON.stringify(schemaSite)}
+		/>
 	</head>
 
 	<body>

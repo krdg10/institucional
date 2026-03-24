@@ -580,6 +580,26 @@
 	border: 0;
 }
 
+.hero__titulo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.2em;
+}
+
+.hero__profissao {
+	font-size: clamp(1.2rem, 2vw, 1.8rem);
+	font-family: var(--fonte-ui);
+	letter-spacing: 0.08em;
+	opacity: 0.85;
+}
+
+.hero__nome {
+	font-size: clamp(2.2rem, 6vw, 5rem);
+	font-family: var(--fonte-titulo);
+	letter-spacing: 0.04em;
+}
+
 @media (max-width: 1050px) {
 	.cards {
 		grid-template-columns: repeat(2, minmax(0, 1fr));

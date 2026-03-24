@@ -20,7 +20,7 @@ export const contatosLandingPage: ContatosLandingPage = {
 
 export const dadosApresentacao: DadosApresentacao = {
 	nome: "DÉBORA FERNANDES",
-	profissao: "Psicóloga Clínica",
+	profissao: "Psicóloga",
 	crp: "CRP-08/38319",
 	chamada:
 		"Terapia online com acolhimento, ética e compromisso com sua história.",

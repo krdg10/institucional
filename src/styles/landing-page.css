@@ -588,7 +588,7 @@
 }
 
 .hero__profissao {
-	font-size: clamp(1.2rem, 2vw, 1.8rem);
+	font-size: clamp(1.5rem, 6vw, 3rem);
 	font-family: var(--fonte-ui);
 	letter-spacing: 0.08em;
 	opacity: 0.85;
